@@ -25,6 +25,12 @@ Plug 'tpope/vim-commentary'
 " Gitgutter: display git diff info
 Plug 'airblade/vim-gitgutter'
 
+" Clang-Complete: for c/c++ developing
+Plug 'Rip-Rip/clang_complete'
+
+" Automatic async autocompletion in go
+Plug 'Shougo/deoplete.nvim'
+
 call plug#end()
 
 " write the content of the file on 'make'
@@ -81,6 +87,9 @@ autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 " change tab spacing rules for go files
 autocmd BufNewFile,BufRead *.proto setlocal noexpandtab tabstop=4 shiftwidth=4
 
+" change tab spacing rules for go files
+autocmd BufNewFile,BufRead *.c setlocal noexpandtab tabstop=4 shiftwidth=4
+
 " enable molokai with original colour scheme and 256 colour version
 let g:rehash256 = 1
 let g:molokai_original = 1
@@ -136,3 +145,18 @@ set linebreak
 " https://stackoverflow.com/a/526940/4129860
 set wildmode=longest,list,full
 set wildmenu
+
+" treat .h files as c headers
+augroup project
+    autocmd!
+    autocmd BufRead,BufNewFile *.h,*.c set filetype=c
+augroup END
+
+" let vim search include files when going to a file
+let &path.="src/include,/usr/include/AL,"
+
+" transform strings in to file paths when going to a file
+set includeexpr=substitute(v:fname,'\\.','/','g')
+
+" config for clang-complete
+let g:clang_library_path='/usr/bin/clang'
