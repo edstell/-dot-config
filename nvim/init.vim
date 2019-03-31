@@ -159,4 +159,7 @@ let &path.="src/include,/usr/include/AL,"
 set includeexpr=substitute(v:fname,'\\.','/','g')
 
 " config for clang-complete
-let g:clang_library_path='/usr/bin/clang'
+let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/libclang.dylib'
+
+" search path for files
+let &path.="../lib,../include,/usr/include/AL,"
