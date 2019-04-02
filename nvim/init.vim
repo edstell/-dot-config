@@ -25,8 +25,8 @@ Plug 'tpope/vim-commentary'
 " Gitgutter: display git diff info
 Plug 'airblade/vim-gitgutter'
 
-" Clang-Complete: for c/c++ developing
-Plug 'Rip-Rip/clang_complete'
+" ALE: linting engine for c files
+Plug 'w0rp/ale'
 
 " Automatic async autocompletion in go
 Plug 'Shougo/deoplete.nvim'
@@ -163,3 +163,10 @@ let g:clang_library_path='/Applications/Xcode.app/Contents/Developer/Toolchains/
 
 " search path for files
 let &path.="../lib,../include,/usr/include/AL,"
+
+" define linters ale should use
+let g:ale_linters = {'c': ['clang','clangd']}
+
+" Enable completion where available.
+" This setting must be set before ALE is loaded.
+let g:ale_completion_enabled = 1
