@@ -103,8 +103,6 @@ function gwd () {
 # Set up Monzo specific things
 [ -f $HOME/.config/zsh/monzo.sh ] && source $HOME/.config/zsh/monzo.sh
 
-export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
-if [ -z $(pgrep gpg-agent) ]; then gpg-agent --daemon; fi
 
 # This script sets up my Monzo-specific zsh things
 
@@ -114,15 +112,11 @@ export PATH="$PATH:$GOPATH/bin"
 
 # If the starter pack is installed, run it
 [ -f $HOME/src/github.com/monzo/starter-pack/zshrc ] && source $HOME/src/github.com/monzo/starter-pack/zshrc
-
-# TODO: Is this needed?
 export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+if [ -z $(pgrep gpg-agent) ]; then gpg-agent --daemon; fi
 
 # enable rbenv
 eval "$(rbenv init -)"
 
 # Type 'wad' to cd into `wearedev` and start tmux
 #alias wad='cd ~/src/github.com/monzo/wearedev && tmux'<Paste>
-
-# enable vi mode
-bindkey -v

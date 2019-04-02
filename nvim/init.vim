@@ -169,4 +169,10 @@ let g:ale_linters = {'c': ['clang','clangd']}
 
 " Enable completion where available.
 " This setting must be set before ALE is loaded.
-let g:ale_completion_enabled = 1
+let g:ale_completion_enabled = 0
+
+" Enable ale for certain file types
+let g:ale_pattern_options = {
+\   '.*\.c$': {'ale_enabled': 1},
+\   '.*\.h$': {'ale_enabled': 1},
+\}
