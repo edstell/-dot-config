@@ -28,6 +28,9 @@ Plug 'airblade/vim-gitgutter'
 " ALE: linting engine for c files
 Plug 'w0rp/ale'
 
+" Vim Clang Format: auto formatting for c family files
+Plug 'rhysd/vim-clang-format'
+
 " Automatic async autocompletion in go
 Plug 'Shougo/deoplete.nvim'
 
@@ -171,8 +174,23 @@ let g:ale_linters = {'c': ['clang','clangd']}
 " This setting must be set before ALE is loaded.
 let g:ale_completion_enabled = 0
 
-" Enable ale for certain file types
+" Enable ale only for c
 let g:ale_pattern_options = {
 \   '.*\.c$': {'ale_enabled': 1},
 \   '.*\.h$': {'ale_enabled': 1},
 \}
+
+" clang format styling options
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : 4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>

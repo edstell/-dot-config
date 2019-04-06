@@ -58,6 +58,7 @@ alias gcb="git checkout -b"
 alias vim="/usr/local/bin/nvim"
 
 # shortcut to change to wearedev
+alias ste="cd /Users/edstell/src/github.com/stell1315"
 alias wad="cd /Users/edstell/src/github.com/monzo/wearedev"
 alias scripts="cd /Users/edstell/src/github.com/monzo/scripts"
 alias web-projects="cd /Users/edstell/src/github.com/monzo/web-projects"
