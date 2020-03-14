@@ -48,9 +48,11 @@ alias ga="git add"
 alias gc="git commit -m"
 alias gpl="git pull"
 alias gp="git push"
+alias gpf="git push -f"
 alias gpu="git push -u origin HEAD"
 alias gb="git branch"
 alias gbd="git branch -d"
+alias gbD="git branch -D"
 alias gco="git checkout"
 alias gcb="git checkout -b"
 
@@ -63,15 +65,28 @@ alias wad="cd /Users/edstell/src/github.com/monzo/wearedev"
 alias scripts="cd /Users/edstell/src/github.com/monzo/scripts"
 alias web-projects="cd /Users/edstell/src/github.com/monzo/web-projects"
 
+alias tilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000064,\"HIDKeyboardModifierMappingDst\":0x700000035},{\"HIDKeyboardModifierMappingSrc\":0x700000035,\"HIDKeyboardModifierMappingDst\":0x700000064}]}'"
+
+##############################################################################
+# History Configuration
+##############################################################################
+HISTSIZE=5000               #How many lines of history to keep in memory
+HISTFILE=~/.zsh_history     #Where to save history to disk
+SAVEHIST=5000               #Number of history entries to save to disk
+#HISTDUP=erase               #Erase duplicates in the history file
+setopt    appendhistory     #Append history to the history file (no overwriting)
+setopt    sharehistory      #Share history across terminals
+setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+
 ## Tool customisation
 
 # Make nvim the default editor, if it exists
-if command -v nvim &>/dev/null
-then
-	export EDITOR="nvim"
-else
-	export EDITOR="vim"
-fi
+#if command -v nvim &>/dev/null
+#then
+#	export EDITOR="nvim"
+#else
+#	export EDITOR="vim"
+#fi
 
 # Enable git completion (maybe this enables autocompletion generally?)
 autoload -Uz compinit && compinit
@@ -121,3 +136,4 @@ eval "$(rbenv init -)"
 
 # Type 'wad' to cd into `wearedev` and start tmux
 #alias wad='cd ~/src/github.com/monzo/wearedev && tmux'<Paste>
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
