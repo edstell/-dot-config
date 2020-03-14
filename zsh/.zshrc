@@ -137,3 +137,5 @@ eval "$(rbenv init -)"
 # Type 'wad' to cd into `wearedev` and start tmux
 #alias wad='cd ~/src/github.com/monzo/wearedev && tmux'<Paste>
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
