@@ -173,6 +173,7 @@ let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
 let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
 let g:go_list_type = "quickfix"
+let g:go_test_show_name=1 " show name of failed tests
 
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
