@@ -55,6 +55,7 @@ set cmdheight=2 		" Better display for messages
 set updatetime=300 		" Smaller updatetime for CursorHold & CursorHoldI
 set shortmess+=c 		" don't give |ins-completion-menu| messages.
 set signcolumn=yes 		" always show signcolumns
+:set colorcolumn=80 		" put a ruler on column 80
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
@@ -159,13 +160,13 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 " File browsing
 let g:netrw_banner=0 				" disable banner
-let g:netrw_browse_split=4 			" open in prior window
+let g:netrw_browse_split=0 			" replace current window when opening file
 let g:netrw_altv=1 				" open splits to the right
 let g:netrw_liststyle=3 			" tree view
 let g:netrw_list_hide=netrw_gitignore#Hide() 	" don't show gitignore[d] files in browser
 let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
 " - :edit a folder to open a file browser
-" - <CR>/v/t to open in h-split/v-split/tab
+" - o/v/t to open in h-split/v-split/tab
 " - check |netrw-browse-maps| for more mappings
 
 " vim-go
