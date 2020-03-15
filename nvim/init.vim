@@ -55,7 +55,8 @@ set cmdheight=2 		" Better display for messages
 set updatetime=300 		" Smaller updatetime for CursorHold & CursorHoldI
 set shortmess+=c 		" don't give |ins-completion-menu| messages.
 set signcolumn=yes 		" always show signcolumns
-:set colorcolumn=80 		" put a ruler on column 80
+set colorcolumn=80 		" put a ruler on column 80
+set nowrap 			" don't wrap long lines
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
