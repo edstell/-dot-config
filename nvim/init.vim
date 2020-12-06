@@ -222,6 +222,14 @@ augroup go
   autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
+autocmd BufNewFile,BufRead *.gotmpl set filetype=go
+
+augroup html
+  autocmd BufNewFile,BufRead *.html setlocal noexpandtab tabstop=2 shiftwidth=2
+augroup END
+
+autocmd FileType proto setlocal shiftwidth=4 softtabstop=4 expandtab
+
 " build_go_files is a custom function that builds or compiles the test file.
 " It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file
 function! s:build_go_files()

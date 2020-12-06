@@ -64,9 +64,13 @@ alias ste="cd /Users/edstell/src/github.com/stell1315"
 alias wad="cd /Users/edstell/src/github.com/monzo/wearedev"
 alias scripts="cd /Users/edstell/src/github.com/monzo/scripts"
 alias web-projects="cd /Users/edstell/src/github.com/monzo/web-projects"
-
+#
+# flip tilde keys over
 alias tilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000064,\"HIDKeyboardModifierMappingDst\":0x700000035},{\"HIDKeyboardModifierMappingSrc\":0x700000035,\"HIDKeyboardModifierMappingDst\":0x700000064}]}'"
-alias itilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000035,\"HIDKeyboardModifierMappingDst\":0x700000064},{\"HIDKeyboardModifierMappingSrc\":0x700000064,\"HIDKeyboardModifierMappingDst\":0x700000035}]}'"
+alias itilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000035,\"HIDKeyboardModifierMappingDst\":0x700000035},{\"HIDKeyboardModifierMappingSrc\":0x700000064,\"HIDKeyboardModifierMappingDst\":0x700000064}]}'"
+
+# run rpcmap on a service
+function rules() { go run github.com/monzo/wearedev/tools/rpcmap/cmd/rpcmap -generate "github.com/monzo/wearedev/$1"; }
 
 ##############################################################################
 # History Configuration
