@@ -3,6 +3,10 @@ export PATH="$HOME/homebrew/sbin:$HOME/homebrew/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Users/edstell/homebrew/opt/go@1.8/bin:$PATH"
+export GOPHERJS_GOROOT="$(go1.12.16 env GOROOT)"
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Use homebrew python instead of system python
 if [ -d "/Users/edstell/homebrew/opt/python/libexec/bin" ]; then
@@ -86,12 +90,12 @@ setopt    incappendhistory  #Immediately append to the history file, not just wh
 ## Tool customisation
 
 # Make nvim the default editor, if it exists
-#if command -v nvim &>/dev/null
-#then
-#	export EDITOR="nvim"
-#else
-#	export EDITOR="vim"
-#fi
+if command -v nvim &>/dev/null
+then
+	export EDITOR="nvim"
+else
+	export EDITOR="vim"
+fi
 
 # Enable git completion (maybe this enables autocompletion generally?)
 autoload -Uz compinit && compinit
@@ -133,11 +137,11 @@ export PATH="$PATH:$GOPATH/bin"
 
 # If the starter pack is installed, run it
 [ -f $HOME/src/github.com/monzo/starter-pack/zshrc ] && source $HOME/src/github.com/monzo/starter-pack/zshrc
-export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
-if [ -z $(pgrep gpg-agent) ]; then gpg-agent --daemon; fi
+#export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
+#if [ -z $(pgrep gpg-agent) ]; then gpg-agent --daemon; fi
 
 # enable rbenv
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 # Type 'wad' to cd into `wearedev` and start tmux
 #alias wad='cd ~/src/github.com/monzo/wearedev && tmux'<Paste>

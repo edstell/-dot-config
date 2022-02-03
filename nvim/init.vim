@@ -1,12 +1,15 @@
 call plug#begin()
 Plug 'fatih/vim-go' 				" go tooling in vim
-Plug 'fatih/molokai'  				" colourful theme
-Plug 'AndrewRadev/splitjoin.vim' 		" splitting single/multi-line
+Plug 'fatih/molokai'				" colourful theme
+Plug 'morhetz/gruvbox' 				" a different theme
+" Plug 'HerringtonDarkholme/yats.vim' 		" better typescript syntax highlighting
 Plug 'ctrlpvim/ctrlp.vim' 			" jumping between functions
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " language client to talk to gopls
 Plug 'airblade/vim-gitgutter' 			" git diff info
 Plug 'tpope/vim-commentary' 			" quickly comment out blocks of code
 Plug 'jiangmiao/auto-pairs' 			" automatically insert/delete bracket pairs
+Plug 'preservim/nerdtree' 			" file explorer
+Plug 'Xuyuanp/nerdtree-git-plugin' 		" git integration for nerdtree
 call plug#end()
 
 """"""""""""""""""""""
@@ -16,6 +19,7 @@ set nocompatible                " Enables us Vim specific features
 filetype off                    " Reset filetype detection first ...
 filetype plugin indent on       " ... and enable filetype detection
 set ttyfast                     " Indicate fast terminal conn for faster redraw
+set list 			" Show tabs as '>'
 set laststatus=2                " Show status line always
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically read changed files
@@ -49,6 +53,7 @@ set shortmess+=c 		" don't give |ins-completion-menu| messages.
 set signcolumn=yes 		" always show signcolumns
 set colorcolumn=80 		" put a ruler on column 80
 set nowrap 			" don't wrap long lines
+set shell=/bin/zsh 		" set the path to shell
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
@@ -68,7 +73,7 @@ syntax enable
 set t_Co=256
 let g:rehash256 = 1
 let g:molokai_original = 1
-colorscheme molokai
+colorscheme gruvbox
 
 """"""""""""""""""""""
 "      Mappings      "
@@ -103,7 +108,7 @@ autocmd BufEnter * silent! lcd %:p:h
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
-" Use `[c` and `]c` to navigate diagnostics
+" Use `[c` and `]c` to navigate diagnostic
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
 
@@ -151,6 +156,9 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 "      Plugins      "
 """""""""""""""""""""
 
+" Coc
+
+
 " File browsing
 let g:netrw_banner=0 				" disable banner
 let g:netrw_browse_split=0 			" replace current window when opening file
@@ -167,17 +175,25 @@ let g:go_fmt_command = "goimports"
 let g:go_autodetect_gopath = 1
 let g:go_list_type = "quickfix"
 let g:go_test_show_name=1 " show name of failed tests
+let g:go_auto_sameids = 0 " highlight variables with the same id
 
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
 
+" go syntax highlighting
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
 let g:go_highlight_functions = 1
 let g:go_highlight_function_calls = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_generate_tags = 1
+
+" Optional extra highlighting options (which can be removed if slow things
+" down too much)
+let g:go_highlight_methods = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_operators = 1
 
 " Open :GoDeclsDir with ctrl-g
 nmap <C-g> :GoDeclsDir<cr>
@@ -229,6 +245,15 @@ augroup html
 augroup END
 
 autocmd FileType proto setlocal shiftwidth=4 softtabstop=4 expandtab
+
+" Display nerdtree on Vim open.
+autocmd VimEnter * NERDTree
+
+" Focus on editor by default
+autocmd VimEnter * wincmd p
+
+" Close vim if nertree is last split open.
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " build_go_files is a custom function that builds or compiles the test file.
 " It calls :GoBuild if its a Go file, or :GoTestCompile if it's a test file

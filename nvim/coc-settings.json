@@ -4,7 +4,7 @@
 			"command": "gopls",
 			"args": ["serve", "-debug", ""],
 			"filetypes": ["go"],
-			"rootPatterns": ["main.go", "go.mod"],
+			"rootPatterns": ["main.go", "go.mod", "*.go"],
 			"requireRootPattern": true,
 			"initializationOptions": {
 				"deepCompletion": false
@@ -18,10 +18,11 @@
 			"requireRootPattern": true
 		}
 	},
+	"javascript.validate.enable": false,
 	"yaml.schemas": {
 		"kubernetes": "/*.yaml"
 	},
 	"coc.preferences.formatOnSaveFiletypes": [
-		"css", "markdown", "javascript", "graphql", "yaml", "js", "golang"
+		"css", "markdown", "javascript", "graphql", "yaml", "js", "golang", "html"
 	]
 }
