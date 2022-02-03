@@ -1,10 +1,8 @@
 call plug#begin()
-Plug 'fatih/vim-go' 				" go tooling in vim
-Plug 'fatih/molokai'				" colourful theme
+Plug 'fatih/vim-go'
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'morhetz/gruvbox' 				" a different theme
-" Plug 'HerringtonDarkholme/yats.vim' 		" better typescript syntax highlighting
 Plug 'ctrlpvim/ctrlp.vim' 			" jumping between functions
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " language client to talk to gopls
 Plug 'airblade/vim-gitgutter' 			" git diff info
 Plug 'tpope/vim-commentary' 			" quickly comment out blocks of code
 Plug 'jiangmiao/auto-pairs' 			" automatically insert/delete bracket pairs

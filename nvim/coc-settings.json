@@ -3,14 +3,12 @@
 		"golang": {
 			"command": "gopls",
 			"args": ["serve", "-debug", ""],
+			"rootPatterns": ["main.go", "go.mod", ".vim/", ".git/", ".hg/", "*.go"],
 			"filetypes": ["go"],
-			"rootPatterns": ["main.go", "go.mod", "*.go"],
-			"requireRootPattern": true,
 			"initializationOptions": {
 				"deepCompletion": false
 			},
-			"ignoredRootPaths": ["$HOME/src/github.com/monzo/wearedev/"],
-			"disableWorkspaceFolders": true
+			"ignoredRootPaths": ["$HOME/src/github.com/monzo/wearedev/"]
 		},
 		"proto" : {
 			"filetypes": ["proto"],
