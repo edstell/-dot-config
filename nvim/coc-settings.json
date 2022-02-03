@@ -5,6 +5,7 @@
 			"args": ["serve", "-debug", ""],
 			"rootPatterns": ["main.go", "go.mod", ".vim/", ".git/", ".hg/", "*.go"],
 			"filetypes": ["go"],
+			"requireRootPattern": true,
 			"initializationOptions": {
 				"deepCompletion": false
 			},
