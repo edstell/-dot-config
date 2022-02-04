@@ -1,13 +1,16 @@
 call plug#begin()
-Plug 'fatih/vim-go'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'morhetz/gruvbox' 				" a different theme
-Plug 'ctrlpvim/ctrlp.vim' 			" jumping between functions
-Plug 'airblade/vim-gitgutter' 			" git diff info
-Plug 'tpope/vim-commentary' 			" quickly comment out blocks of code
-Plug 'jiangmiao/auto-pairs' 			" automatically insert/delete bracket pairs
-Plug 'preservim/nerdtree' 			" file explorer
-Plug 'Xuyuanp/nerdtree-git-plugin' 		" git integration for nerdtree
+Plug 'fatih/vim-go'							" Golang sugar
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} 	" language server 'client'
+Plug 'morhetz/gruvbox' 							" a different theme
+Plug 'ctrlpvim/ctrlp.vim' 						" jumping between functions
+Plug 'airblade/vim-gitgutter' 						" git diff info
+Plug 'tpope/vim-commentary' 						" quickly comment out blocks of code
+Plug 'jiangmiao/auto-pairs' 						" automatically insert/delete bracket pairs
+Plug 'preservim/nerdtree' 						" file explorer
+Plug 'Xuyuanp/nerdtree-git-plugin' 					" git integration for nerdtree
+Plug 'HerringtonDarkholme/yats.vim' 					" typescript syntax highlighting
+Plug 'vim-airline/vim-airline' 						" Status bar
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
 """"""""""""""""""""""
@@ -153,6 +156,9 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 """""""""""""""""""""
 "      Plugins      "
 """""""""""""""""""""
+
+" Airline
+let g:airline_powerline_fonts = 0
 
 " Coc
 
