@@ -4,9 +4,9 @@ export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Users/edstell/homebrew/opt/go@1.8/bin:$PATH"
 export GOPHERJS_GOROOT="$(go1.12.16 env GOROOT)"
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"                                                                                                                         master
+    [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
+    [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 
 # Use homebrew python instead of system python
 if [ -d "/Users/edstell/homebrew/opt/python/libexec/bin" ]; then

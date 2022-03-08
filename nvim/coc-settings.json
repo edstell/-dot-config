@@ -2,26 +2,62 @@
 	"languageserver": {
 		"golang": {
 			"command": "gopls",
-			"args": ["serve", "-debug", ""],
-			"rootPatterns": ["main.go", "go.mod", ".vim/", ".git/", ".hg/", "*.go"],
-			"filetypes": ["go"],
+			"args": [
+				"serve",
+				"-debug",
+				""
+			],
+			"rootPatterns": [
+				"main.go",
+				"go.mod",
+				".vim/",
+				".git/",
+				".hg/",
+				"*.go"
+			],
+			"filetypes": [
+				"go"
+			],
 			"requireRootPattern": true,
 			"initializationOptions": {
 				"deepCompletion": false
 			},
-			"ignoredRootPaths": ["$HOME/src/github.com/monzo/wearedev/"]
+			"ignoredRootPaths": [
+				"$HOME/src/github.com/monzo/wearedev/"
+			]
 		},
-		"proto" : {
-			"filetypes": ["proto"],
-			"rootPatterns": ["*.proto"],
-			"requireRootPattern": true
+		"flow": {
+			"command": "npx",
+			"args": [
+				"flow",
+				"lsp"
+			],
+			"filetypes": [
+				"javascript",
+				"javascriptreact"
+			],
+			"initializationOptions": {},
+			"requireRootPattern": true,
+			"settings": {},
+			"rootPatterns": [
+				".flowconfig"
+			]
 		}
 	},
-	"javascript.validate.enable": false,
-	"yaml.schemas": {
-		"kubernetes": "/*.yaml"
+	"diagnostic-languageserver.filetypes": {
+		"sh": "shellcheck",
+		"javascript": "eslint",
+		"javascript.jsx": "eslint"
 	},
+	"javascript.validate.enable": false,
 	"coc.preferences.formatOnSaveFiletypes": [
-		"css", "markdown", "javascript", "graphql", "yaml", "js", "golang", "html"
+		"css",
+		"markdown",
+		"javascript",
+		"graphql",
+		"yaml",
+		"js",
+		"golang",
+		"html"
 	]
 }

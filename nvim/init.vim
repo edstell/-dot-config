@@ -1,3 +1,5 @@
+set nocompatible
+
 call plug#begin()
 Plug 'fatih/vim-go'							" Golang sugar
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} 	" language server 'client'
@@ -11,6 +13,11 @@ Plug 'Xuyuanp/nerdtree-git-plugin' 					" git integration for nerdtree
 Plug 'HerringtonDarkholme/yats.vim' 					" typescript syntax highlighting
 Plug 'vim-airline/vim-airline' 						" Status bar
 Plug 'vim-airline/vim-airline-themes'
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install --frozen-lockfile --production',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'svelte', 'yaml', 'html'] }
+Plug 'sheerun/vim-polyglot' 						" Syntax highlighting for a bunch of languages
 call plug#end()
 
 """"""""""""""""""""""
@@ -21,6 +28,7 @@ filetype off                    " Reset filetype detection first ...
 filetype plugin indent on       " ... and enable filetype detection
 set ttyfast                     " Indicate fast terminal conn for faster redraw
 set list 			" Show tabs as '>'
+set mouse=a                     " Can use mouse to interact e.g. scrolling/clicking
 set laststatus=2                " Show status line always
 set encoding=utf-8              " Set default encoding to UTF-8
 set autoread                    " Automatically read changed files
@@ -162,6 +170,8 @@ let g:airline_powerline_fonts = 0
 
 " Coc
 
+" Prettier
+let g:prettier#autoformat_require_pragma = 0
 
 " File browsing
 let g:netrw_banner=0 				" disable banner
@@ -246,6 +256,10 @@ autocmd BufNewFile,BufRead *.gotmpl set filetype=go
 
 augroup html
   autocmd BufNewFile,BufRead *.html setlocal noexpandtab tabstop=2 shiftwidth=2
+augroup END
+
+augroup js
+  autocmd BufNewFile,BufRead *.js setlocal expandtab tabstop=2 shiftwidth=2
 augroup END
 
 autocmd FileType proto setlocal shiftwidth=4 softtabstop=4 expandtab
