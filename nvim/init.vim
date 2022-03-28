@@ -190,6 +190,7 @@ let g:go_autodetect_gopath = 1
 let g:go_list_type = "quickfix"
 let g:go_test_show_name=1 " show name of failed tests
 let g:go_auto_sameids = 0 " highlight variables with the same id
+let g:go_gopls_enabled = 0 " disable vim-go lsp (we're using coc instead)
 
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]

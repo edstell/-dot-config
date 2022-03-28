@@ -10,6 +10,8 @@
 			"rootPatterns": [
 				"main.go",
 				"go.mod",
+				"README.md",
+				"LICENCE",
 				".vim/",
 				".git/",
 				".hg/",
