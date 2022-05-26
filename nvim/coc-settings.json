@@ -1,39 +1,6 @@
 {
+	"workspace.bottomUpFiletypes": ["gopls"],
 	"languageserver": {
-		"golang": {
-			"command": "gopls",
-			"args": [
-				"-remote=auto"
-			],
-			"rootPatterns": [
-				"main.go",
-				"go.mod",
-				"README.md",
-				"LICENCE"
-			],
-			"filetypes": [
-				"go"
-			],
-			"settings": {
-				"analyses": {
-					"fieldalignment" : true,
-					"nilness" : true,
-					"shadow" : true,
-					"unusedparams" : true,
-					"unusedwrite" : true
-				},
-				"staticCheck": true,
-				"memoryMode": "DegradeClosed",
-				"expandWorkspaceToModule": false
-			},
-			"requireRootPattern": true,
-			"initializationOptions": {
-				"deepCompletion": false
-			},
-			"ignoredRootPaths": [
-				"$HOME/src/github.com/monzo/wearedev/"
-			]
-		},
 		"flow": {
 			"command": "npx",
 			"args": [
