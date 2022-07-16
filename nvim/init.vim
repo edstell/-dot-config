@@ -368,9 +368,15 @@ lua <<EOF
 
 	lspconfig.gopls.setup(
 			monzo_lsp.go_config({
-				capabilities = capabilities,
-				on_attach = custom_lsp_attach
-			})
+        on_attach = custom_lsp_attach,
+        settings = {
+          gopls = {
+            analyses = {
+              fieldalignment = false,
+            }
+          },
+        },
+      })
 	)
 
 	-- Component autocompletion
