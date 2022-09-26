@@ -3,7 +3,6 @@ export PATH="$HOME/homebrew/sbin:$HOME/homebrew/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="/Users/edstell/homebrew/opt/go@1.8/bin:$PATH"
-export GOPHERJS_GOROOT="$(go1.12.16 env GOROOT)"
 export NVM_DIR="$HOME/.nvm"                                                                                                                         master
     [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
     [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
@@ -61,20 +60,15 @@ alias gco="git checkout"
 alias gcb="git checkout -b"
 
 # remap vim to nvim
-alias vim="/usr/local/bin/nvim"
+alias vim="/opt/homebrew/bin/nvim"
 
 # shortcut to change to wearedev
-alias ste="cd /Users/edstell/src/github.com/stell1315"
-alias wad="cd /Users/edstell/src/github.com/monzo/wearedev"
-alias scripts="cd /Users/edstell/src/github.com/monzo/scripts"
-alias web-projects="cd /Users/edstell/src/github.com/monzo/web-projects"
-#
+alias dev="cd /Users/edstell/src/github.com/avianlabs/backend"
+alias wad="cd /Users/edstell/src/github.com/avianlabs/backend"
+
 # flip tilde keys over
 alias tilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000064,\"HIDKeyboardModifierMappingDst\":0x700000035},{\"HIDKeyboardModifierMappingSrc\":0x700000035,\"HIDKeyboardModifierMappingDst\":0x700000064}]}'"
 alias itilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000035,\"HIDKeyboardModifierMappingDst\":0x700000035},{\"HIDKeyboardModifierMappingSrc\":0x700000064,\"HIDKeyboardModifierMappingDst\":0x700000064}]}'"
-
-# run rpcmap on a service
-function rules() { go run github.com/monzo/wearedev/tools/rpcmap/cmd/rpcmap -generate "github.com/monzo/wearedev/$1"; }
 
 ##############################################################################
 # History Configuration
@@ -121,30 +115,7 @@ function gwd () {
     echo "kill" $!
 }
 
-
 ## Laptop-specific setup
 [ -f $HOME/.config/zsh/personal.sh ] && source $HOME/.config/zsh/personal.sh
-
-# Set up Monzo specific things
-[ -f $HOME/.config/zsh/monzo.sh ] && source $HOME/.config/zsh/monzo.sh
-
-
-# This script sets up my Monzo-specific zsh things
-
-# Set up GOPATH
-export GOPATH=$HOME
-export PATH="$PATH:$GOPATH/bin"
-
-# If the starter pack is installed, run it
-[ -f $HOME/src/github.com/monzo/starter-pack/zshrc ] && source $HOME/src/github.com/monzo/starter-pack/zshrc
-#export SSH_AUTH_SOCK=$HOME/.gnupg/S.gpg-agent.ssh
-#if [ -z $(pgrep gpg-agent) ]; then gpg-agent --daemon; fi
-
-# enable rbenv
-#eval "$(rbenv init -)"
-
-# Type 'wad' to cd into `wearedev` and start tmux
-#alias wad='cd ~/src/github.com/monzo/wearedev && tmux'<Paste>
-[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
