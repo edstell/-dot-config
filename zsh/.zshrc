@@ -2,6 +2,7 @@
 export PATH="$HOME/homebrew/sbin:$HOME/homebrew/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export PATH="/Users/edstell/homebrew/opt/go@1.8/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"                                                                                                                         master
     [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
@@ -63,8 +64,8 @@ alias gcb="git checkout -b"
 alias vim="/opt/homebrew/bin/nvim"
 
 # shortcut to change to wearedev
-alias dev="cd /Users/edstell/src/github.com/avianlabs/backend"
-alias wad="cd /Users/edstell/src/github.com/avianlabs/backend"
+alias dev="cd /Users/edstell/go/src/github.com/avianlabs/backend"
+alias wad="cd /Users/edstell/go/src/github.com/avianlabs/backend"
 
 # flip tilde keys over
 alias tilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000064,\"HIDKeyboardModifierMappingDst\":0x700000035},{\"HIDKeyboardModifierMappingSrc\":0x700000035,\"HIDKeyboardModifierMappingDst\":0x700000064}]}'"
