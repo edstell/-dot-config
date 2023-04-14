@@ -64,8 +64,8 @@ alias gcb="git checkout -b"
 alias vim="/opt/homebrew/bin/nvim"
 
 # shortcut to change to wearedev
-alias dev="cd /Users/edstell/go/src/github.com/avianlabs/backend"
-alias wad="cd /Users/edstell/go/src/github.com/avianlabs/backend"
+alias dev="cd /Users/edstell/src/github.com/avianlabs/backend/platform"
+alias wad="cd /Users/edstell/src/github.com/avianlabs/backend/platform"
 
 # flip tilde keys over
 alias tilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifierMappingSrc\":0x700000064,\"HIDKeyboardModifierMappingDst\":0x700000035},{\"HIDKeyboardModifierMappingSrc\":0x700000035,\"HIDKeyboardModifierMappingDst\":0x700000064}]}'"
@@ -120,3 +120,5 @@ function gwd () {
 [ -f $HOME/.config/zsh/personal.sh ] && source $HOME/.config/zsh/personal.sh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
+source <(cli completion zsh)

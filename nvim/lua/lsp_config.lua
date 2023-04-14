@@ -82,11 +82,11 @@ lspconfig.gopls.setup {
 }
 
 -- https://github.com/hashicorp/terraform-ls/blob/main/docs/USAGE.md#neovim-v050
-lspconfig.terraformls.setup{}
-vim.api.nvim_create_autocmd({"BufWritePre"}, {
-  pattern = {"*.tf", "*.tfvars"},
-  callback = vim.lsp.buf.formatting_sync,
-})
+-- require'lspconfig'.terraformls.setup{}
+-- vim.api.nvim_create_autocmd({"BufWritePre"}, {
+--   pattern = {"*.tf", "*.tfvars"},
+--   callback = vim.lsp.buf.format(),
+-- })
 
 -- Component autocompletion
 local cmp = require'cmp'

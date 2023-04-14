@@ -268,7 +268,16 @@ augroup go
   autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
 augroup END
 
-autocmd BufNewFile,BufRead *.gotmpl set filetype=go
+autocmd BufNewFile,BufRead *.gotmpl set syntax=go
+autocmd BufNewFile,BufRead *.prototmpl set syntax=proto
+
+" Show by default 4 spaces for a tab
+autocmd BufNewFile,BufRead *.gotmpl setlocal autoindent noexpandtab tabstop=4 shiftwidth=4
+
+autocmd BufNewFile,BufRead *.sql setlocal expandtab tabstop=2 shiftwidth=2
+
+autocmd BufNewFile,BufRead *.proto setlocal expandtab tabstop=2 shiftwidth=2
+autocmd BufNewFile,BufRead *.prototmpl setlocal expandtab tabstop=2 shiftwidth=2
 
 augroup html
   autocmd BufNewFile,BufRead *.html setlocal noexpandtab tabstop=2 shiftwidth=2
