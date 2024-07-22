@@ -198,6 +198,7 @@ let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
 " - :edit a folder to open a file browser
 " - o/v/t to open in h-split/v-split/tab
 " - check |netrw-browse-maps| for more mappings
+command! E :Explore
 
 " vim-go
 let g:go_fmt_command = "goimports"
@@ -288,9 +289,6 @@ augroup js
 augroup END
 
 autocmd FileType proto setlocal shiftwidth=4 softtabstop=4 expandtab
-
-" Display nerdtree on Vim open.
-autocmd VimEnter * NERDTree
 
 " Focus on editor by default
 autocmd VimEnter * wincmd p

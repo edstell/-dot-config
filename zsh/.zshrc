@@ -1,4 +1,6 @@
 ## $PATH related things
+export NPM_TOKEN="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"
+export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/homebrew/sbin:$HOME/homebrew/bin:$PATH"
 export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
@@ -74,13 +76,28 @@ alias itilde="hidutil property --set '{\"UserKeyMapping\":[{\"HIDKeyboardModifie
 ##############################################################################
 # History Configuration
 ##############################################################################
-HISTSIZE=5000               #How many lines of history to keep in memory
-HISTFILE=~/.zsh_history     #Where to save history to disk
-SAVEHIST=5000               #Number of history entries to save to disk
-#HISTDUP=erase               #Erase duplicates in the history file
-setopt    appendhistory     #Append history to the history file (no overwriting)
-setopt    sharehistory      #Share history across terminals
-setopt    incappendhistory  #Immediately append to the history file, not just when a term is killed
+# Increase the size of the history file
+HISTFILE=~/.zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+
+# Append to the history file, rather than overwriting it
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
+
+# Make sure zsh writes to the history immediately (not only when the shell exits)
+setopt HIST_IGNORE_SPACE
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_VERIFY
+setopt HIST_SAVE_NO_DUPS
+setopt EXTENDED_HISTORY
+
+# Other useful history options
+setopt HIST_REDUCE_BLANKS  # Remove blank lines from history
+setopt HIST_BEEP  # Beep when attempting to access non-existent history entries
 
 ## Tool customisation
 
@@ -122,3 +139,9 @@ function gwd () {
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 source <(cli completion zsh)
+
+uid () {
+	uuidgen | tr -d ‘\n’ | pbcopy
+	echo “Copied to clipboard”
+}
+source $HOME/src/github.com/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
