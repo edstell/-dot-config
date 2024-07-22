@@ -1,5 +1,4 @@
 -- General Settings
-vim.opt.compatible = false -- This line can be omitted; Neovim is non-compatible by default
 vim.opt.ttyfast = true
 vim.opt.list = true
 vim.opt.mouse = 'a'
