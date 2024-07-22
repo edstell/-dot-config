@@ -52,3 +52,6 @@ plugged/
 
 # Old Plug version
 /autoload/plug.vim.old
+
+# Autocompletion
+/tmp
