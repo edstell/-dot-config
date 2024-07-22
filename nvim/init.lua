@@ -1,5 +1,3 @@
--- ~/.config/nvim/init.lua
-
 -- Bootstrap packer.nvim
 local ensure_packer = function()
   local fn = vim.fn
