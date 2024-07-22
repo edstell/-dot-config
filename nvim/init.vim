@@ -38,60 +38,6 @@ call plug#end()
 """"""""""""""""""""""
 "      Settings      "
 """"""""""""""""""""""
-set nocompatible                " Enables us Vim specific features
-filetype off                    " Reset filetype detection first ...
-filetype plugin indent on       " ... and enable filetype detection
-set ttyfast                     " Indicate fast terminal conn for faster redraw
-set list 			" Show tabs as '>'
-set mouse=a                     " Can use mouse to interact e.g. scrolling/clicking
-set laststatus=2                " Show status line always
-set encoding=utf-8              " Set default encoding to UTF-8
-set autoread                    " Automatically read changed files
-set autoindent                  " Enabile Autoindent
-set backspace=indent,eol,start  " Makes backspace key more powerful.
-set incsearch                   " Shows the match while typing
-set hlsearch                    " Highlight found searches
-set noerrorbells                " No beeps
-set number                      " Show line numbers
-set showcmd                     " Show me what I'm typing
-set noswapfile                  " Don't use swapfile
-set nobackup                    " Don't create annoying backup files
-set splitright                  " Vertical windows should be split to right
-set splitbelow                  " Horizontal windows should split to bottom
-set autowrite                   " Automatically save before :next, :make etc.
-set hidden                      " Buffer should still exist if window is closed
-set fileformats=unix,dos,mac    " Prefer Unix over Windows over OS 9 formats
-set noshowmatch                 " Do not show matching brackets by flickering
-set noshowmode                  " We show the mode with airline or lightline
-set ignorecase                  " Search case insensitive...
-set smartcase                   " ... but not it begins with upper case
-set completeopt=menu,menuone    " Show popup menu, even if there is one entry
-set pumheight=10                " Completion window max size
-set nocursorcolumn              " Do not highlight column (speeds up highlighting)
-set nocursorline                " Do not highlight cursor (speeds up highlighting)
-set lazyredraw                  " Wait to redraw
-set hidden 			" if hidden is not set, TextEdit might fail.
-set cmdheight=2 		" Better display for messages
-set updatetime=300 		" Smaller updatetime for CursorHold & CursorHoldI
-set shortmess+=c 		" don't give |ins-completion-menu| messages.
-set signcolumn=yes 		" always show signcolumns
-set colorcolumn=80 		" put a ruler on column 80
-set nowrap 			" don't wrap long lines
-set shell=/bin/zsh 		" set the path to shell
-let NERDTreeShowHidden=1
-
-" Enable to copy to clipboard for operations like yank, delete, change and put
-" http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
-if has('unnamedplus')
-  set clipboard^=unnamed
-  set clipboard^=unnamedplus
-endif
-
-" This enables us to undo files even if you exit Vim.
-if has('persistent_undo')
-  set undofile
-  set undodir=~/.config/vim/tmp/undo//
-endif
 
 " Colorscheme
 syntax enable
@@ -180,52 +126,10 @@ inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 """""""""""""""""""""
 "      Plugins      "
 """""""""""""""""""""
-
-" Airline
-let g:airline_powerline_fonts = 0
-
-" Coc
-
-" Prettier
-let g:prettier#autoformat_require_pragma = 0
-
-" File browsing
-let g:netrw_banner=0 				" disable banner
-let g:netrw_browse_split=0 			" replace current window when opening file
-let g:netrw_altv=1 				" open splits to the right
-let g:netrw_liststyle=3 			" tree view
-let g:netrw_list_hide=netrw_gitignore#Hide() 	" don't show gitignore[d] files in browser
-let g:netrw_list_hide=',\(^\|\s\s\)\zs\.\S\+'
 " - :edit a folder to open a file browser
 " - o/v/t to open in h-split/v-split/tab
 " - check |netrw-browse-maps| for more mappings
 command! E :Explore
-
-" vim-go
-let g:go_fmt_command = "goimports"
-let g:go_autodetect_gopath = 1
-let g:go_list_type = "quickfix"
-let g:go_test_show_name=1 " show name of failed tests
-let g:go_auto_sameids = 0 " highlight variables with the same id
-let g:go_gopls_enabled = 0 " disable vim-go lsp (we're using coc instead)
-
-" disable vim-go :GoDef short cut (gd)
-" this is handled by LanguageClient [LC]
-let g:go_def_mapping_enabled = 0
-
-" go syntax highlighting
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_function_calls = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_generate_tags = 1
-
-" Optional extra highlighting options (which can be removed if slow things
-" down too much)
-let g:go_highlight_methods = 1
-let g:go_highlight_build_constraints = 1
-let g:go_highlight_operators = 1
 
 " Open :GoDeclsDir with ctrl-g
 nmap <C-g> :GoDeclsDir<cr>
