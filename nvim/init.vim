@@ -78,6 +78,7 @@ set signcolumn=yes 		" always show signcolumns
 set colorcolumn=80 		" put a ruler on column 80
 set nowrap 			" don't wrap long lines
 set shell=/bin/zsh 		" set the path to shell
+let NERDTreeShowHidden=1
 
 " Enable to copy to clipboard for operations like yank, delete, change and put
 " http://stackoverflow.com/questions/20186975/vim-mac-how-to-copy-to-clipboard-without-pbcopy
