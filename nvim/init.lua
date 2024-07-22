@@ -21,6 +21,3 @@ require('settings')
 require('mappings')
 require('commands')
 require('lsp_config')
-
--- Load existing Vimscript configuration
-vim.cmd('source ~/.config/nvim/old.init.vim')

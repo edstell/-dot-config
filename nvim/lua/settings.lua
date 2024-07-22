@@ -49,6 +49,12 @@ if vim.fn.has('persistent_undo') == 1 then
   vim.opt.undodir = vim.fn.stdpath('config') .. '/tmp/undo'
 end
 
+-- Colourscheme
+vim.cmd('syntax enable')
+vim.g.rehash256 = 1
+vim.g.molokai_original = 1
+vim.cmd('colorscheme gruvbox')
+
 -- NERDTree settings
 vim.g.NERDTreeShowHidden = 1
 
