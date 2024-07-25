@@ -119,6 +119,7 @@ export CLICOLOR=1
 # Set up FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+eval "$(tmuxifier init -)"
 
 ## Helper functions
 
