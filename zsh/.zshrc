@@ -6,6 +6,8 @@ export PATH="$HOME/Library/Haskell/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="/Users/edstell/homebrew/opt/go@1.8/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"                                                                                                                         master
     [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
     [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
@@ -138,12 +140,11 @@ function gwd () {
 ## Laptop-specific setup
 [ -f $HOME/.config/zsh/personal.sh ] && source $HOME/.config/zsh/personal.sh
 
-export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
-export PATH="/opt/homebrew/opt/libpq/bin:$PATH"
-source <(cli completion zsh)
-
 uid () {
 	uuidgen | tr -d ‘\n’ | pbcopy
 	echo “Copied to clipboard”
 }
+
 source $HOME/src/github.com/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source <(cli completion zsh)
+source <(fzf --zsh)
