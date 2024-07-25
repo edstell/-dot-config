@@ -42,16 +42,7 @@ Session.vim
 # auto-generated tag files
 tags
 
-# End of https://www.gitignore.io/api/vim,macos
-
-# Plug.vim plugins
-plugged/
-
-# netrw history
-.netrwhist
-
-# Old Plug version
-/autoload/plug.vim.old
+lazy-lock.json
 
 # Autocompletion
 /tmp
