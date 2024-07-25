@@ -4,6 +4,9 @@ return {
         local null_ls = require("null-ls")
         null_ls.setup({
             sources = {
+                -- Formatting for Go
+                null_ls.builtins.formatting.gofumpt,
+                null_ls.builtins.formatting.goimports,
                 -- Formatting for Lua files.
                 null_ls.builtins.formatting.stylua,
 
@@ -14,6 +17,7 @@ return {
             },
         })
 
+        -- Manually format files (we've also configured formatting on write with the lsp).
         vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
     end,
 }
