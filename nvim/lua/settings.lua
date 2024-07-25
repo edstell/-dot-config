@@ -8,6 +8,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.updatetime = 300
+vim.opt.shell = "/bin/zsh"
 
 -- Clipboard
 if vim.fn.has("unnamedplus") == 1 then
