@@ -9,6 +9,7 @@ vim.opt.autoindent = true
 vim.opt.number = true
 vim.opt.updatetime = 300
 vim.opt.shell = "/bin/zsh"
+vim.opt.wrap = false
 
 -- Clipboard
 if vim.fn.has("unnamedplus") == 1 then
