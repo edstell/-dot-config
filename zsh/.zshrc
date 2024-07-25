@@ -9,6 +9,7 @@ export PATH="/Users/edstell/homebrew/opt/go@1.8/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"                                                                                                                         master
     [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
     [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
+export PATH="$HOME/.tmuxifier/bin:$PATH"
 
 # Use homebrew python instead of system python
 if [ -d "/Users/edstell/homebrew/opt/python/libexec/bin" ]; then
