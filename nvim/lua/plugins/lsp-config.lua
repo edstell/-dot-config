@@ -71,6 +71,11 @@ return {
                 vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", {})
                 vim.api.nvim_buf_set_keymap(bufnr, "n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", {})
 
+                -- Go to next diagnostic
+                vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>ee", "<cmd>lua vim.diagnostic.goto_next()<CR>", {})
+                -- Go to previous diagnostic
+                vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>eE", "<cmd>lua vim.diagnostic.goto_prev()<CR>", {})
+
                 -- Create an autocmd group for LSP formatting
                 vim.api.nvim_create_augroup("LspFormatting", { clear = true })
                 -- Set up LSP formatting on save
